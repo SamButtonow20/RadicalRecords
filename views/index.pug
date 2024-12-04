@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Radical Records
+    link(rel="stylesheet", href="/styles/styles.css")
+
+  body
+    header
+      include partials/navbar
+
+    //- Splash Section
+    section.splash
+      h2 Feel the Rhythm of Vinyl
+      p Your ultimate destination for the best vinyl records.
+      .call-to-action
+        a.btn(href="/products") Shop Now
+      .featured
+        h3 New Arrivals
+        img(src="/images/abbeyroad.jpg", alt="New Vinyl")
+        p Discover the latest hits and classic records in our store!
+
+    //- Include the Footer partial
+    include partials/footer

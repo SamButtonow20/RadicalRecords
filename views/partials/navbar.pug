@@ -1,0 +1,18 @@
+header
+  nav
+    section.search
+      form(action="#", method="GET")
+        input(type="text", placeholder="Search records by artist, album, genre...")
+        button(type="submit") Go
+    h1
+      a(href="/") Radical Records
+    ul
+      li: a(href="/") Home
+      li: a(href="/genres") Genres
+      li: a(href="/products") Products
+      li: a(href="/cart") Shopping Cart
+      if user
+        li Welcome, #{user.displayName}!
+        li: a(href="/auth/logout") Log Out
+      else
+        li: a(href="/auth/login") Sign In

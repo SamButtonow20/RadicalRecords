@@ -1,0 +1,211 @@
+/* General Styles */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* Navigation Bar */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ff6600;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+/* Splash Section */
+.splash {
+    text-align: center;
+    padding: 50px;
+    background-size: cover;
+    color: rgb(227, 17, 17);
+}
+
+.splash h2 {
+    font-size: 3em;
+}
+
+.splash .btn {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.featured img {
+    width: 200px;
+    margin-top: 20px;
+}
+
+/* Search Section */
+.search {
+    text-align: center;
+    background-color: #ff6600;
+    border-radius: 5px;
+}
+
+.search input {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.search button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+/* Product List */
+.product-list {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures even spacing between items */
+    gap: 20px; /* Adds some space between the product items */
+}
+
+.product-item {
+    flex: 0 0 calc(33.333% - 20px); /* Each item takes up 1/3rd of the row, minus the gap */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.product-item img {
+    width: auto;
+    height: 200px;
+}
+
+.product-item h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+h1 a {
+text-decoration: none;
+color: white;
+margin-right: 10px;
+}
+
+/* Product Details Section */
+.product-details {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-details img {
+    width: 400px;
+    height: auto;
+}
+
+.details {
+    max-width: 500px;
+}
+
+.details h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.details p {
+    margin-bottom: 20px;
+}
+
+.details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.details ul li {
+    margin-bottom: 5px;
+}
+
+.details button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* Shopping Cart Table */
+.shopping-cart table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.shopping-cart th, .shopping-cart td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.cart-item-img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.cart-summary {
+    margin-top: 20px;
+}
+
+.cart-summary p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.update-btn, .remove-btn, .checkout {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.update-btn:hover, .remove-btn:hover, .checkout:hover {
+    background-color: #cc5200;
+}

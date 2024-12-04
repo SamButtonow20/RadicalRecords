@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Shopping Cart - Radical Records
+    link(rel="stylesheet" href="/styles/styles.css")
+    script(src="/js/cart.js" defer)
+  body
+    // Navigation Bar
+    header
+      include partials/navbar
+
+    // Shopping Cart Section
+    section.shopping-cart
+      h2 Your Shopping Cart
+      if cartItems && cartItems.length > 0
+        table
+          thead
+            tr
+              th Item
+              th Quantity
+              th Price
+              th Total
+              th Actions
+          tbody
+            each item in cartItems
+              tr
+                td
+                  span= item.name
+                td
+                  input.quantity-input(type="number" value=item.quantity min="1" data-id=item.cartItemId)
+                td $#{item.price}
+                td $#{item.price * item.quantity}
+                td
+                  button.update-btn(data-id=item.cartItemId) Update
+                  // REMOVE FORM
+                  form(action="/cart/remove" method="POST")
+                    input(type="hidden" name="cartItemId" value=item.cartItemId)
+                    button.remove-btn Remove
+      else
+        p Your cart is currently empty.
+
+      // Cart Summary (Only show if there are items)
+      if cartItems && cartItems.length > 0
+        .cart-summary
+          p Subtotal: $#{subtotal}
+          p Tax (6.75%): $#{tax}
+          p Delivery Fee: $#{deliveryFee}
+          p Total: $#{total}
+          form(action="/cart/checkout" method="POST")
+            button(type="submit") Checkout
+
+    // Footer
+    footer
+      p © 2024 Radical Records. All Rights Reserved.

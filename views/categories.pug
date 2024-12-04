@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Radical Records
+    link(rel="stylesheet", href="/styles/styles.css")
+  body
+    // Navigation Bar
+    header
+      include partials/navbar
+
+    // Product Listing Section
+    section.category-list
+      h2 Available Categories
+      .grid-container
+        each category in categories
+          .category-item
+            h3 #{category.name}
+
+    // Footer
+    footer
+      p &copy; 2024 Radical Records. All Rights Reserved.

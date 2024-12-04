@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Radical Records</title>
+    <link rel="stylesheet" href="../public/styles/styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <section class="search">
+                <form action="#">
+                    <input type="text" placeholder="Search records by artist, album, genre...">
+                    <button type="submit">Go</button>
+                </form>
+            </section>
+
+            <h1><a href="index.html">Radical Records</a></h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">Genres</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Shopping Cart</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Shopping Cart Section -->
+    <section class="shopping-cart">
+        <h2>Your Shopping Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- First Item in Cart -->
+                <tr>
+                    <td>
+                        <img src="../public/images/abbeyroad.jpg" alt="Abbey Road" class="cart-item-img">
+                        <span>Abbey Road - The Beatles</span>
+                    </td>
+                    <td>
+                        <input type="number" value="1">
+                    </td>
+                    <td>$29.99</td>
+                    <td>$29.99</td>
+                    <td>
+                        <button class="update-btn">Update</button>
+                        <button class="remove-btn">Remove</button>
+                    </td>
+                </tr>
+                <!-- Second Item in Cart with quantity 2 -->
+                <tr>
+                    <td>
+                        <img src="../public/images/darksideofthemoon.jpg" alt="Dark Side of the Moon" class="cart-item-img">
+                        <span>Dark Side of the Moon - Pink Floyd</span>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                    <td>$34.99</td>
+                    <td>$69.98</td>
+                    <td>
+                        <button class="update-btn">Update</button>
+                        <button class="remove-btn">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <p>Subtotal: $99.97</p> 
+            <p>Tax (6.75%): $6.74</p>
+            <p>Delivery Fee: $5.00</p> 
+            <p>Total: $111.71</p> 
+        </div>
+
+ 
+        <button class="checkout">Checkout</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Radical Records. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+ 
+
+
+<!-- Script for when we use JS to calculation the total -->
+
+<!-- TODO: Dont forget to change the callbacks to use the JS for the cart -->
+ 
+<!-- 
+ <script>
+    const TAX_RATE = 0.0675;
+    const DELIVERY_FEE = 5.00;
+
+    // Function to update totals
+    function updateCart() {
+        let subtotal = 0;
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const priceElement = item.querySelector('.price');
+            const quantityInput = item.querySelector('.quantity-input');
+            const totalElement = item.querySelector('.item-total');
+
+            const price = parseFloat(priceElement.textContent.replace('$', ''));
+            const quantity = parseInt(quantityInput.value);
+
+            // Update the total for this item
+            const itemTotal = price * quantity;
+            totalElement.textContent = `$${itemTotal.toFixed(2)}`;
+
+            subtotal += itemTotal;
+        });
+
+        // Calculate tax
+        const tax = subtotal * TAX_RATE;
+        // Calculate total with tax and delivery fee
+        const total = subtotal + tax + DELIVERY_FEE;
+
+        // Update cart summary
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+        document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Add event listeners to "Update" buttons
+    document.querySelectorAll('.update-btn').forEach(button => {
+        button.addEventListener('click', updateCart);
+    });
+</script> -->
