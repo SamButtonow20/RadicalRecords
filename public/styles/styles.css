@@ -182,9 +182,9 @@ h1 a {
 
 /* Category Sections */
 .category-section {
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     /* Reduced vertical spacing between categories */
-    padding-bottom: 10px;
+    padding-bottom: 40px;
     border-bottom: 1px solid #ccc;
 }
 
