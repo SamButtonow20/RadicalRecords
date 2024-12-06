@@ -15,6 +15,11 @@ function run(sql, ...params) {
   return db.prepare(sql).run(params[0]);
 }
 
+function runQuery(sql, ...params) {
+  return db.prepare(sql).run(...params);
+}
+
+
 function exec(sql) {
   return db.exec(sql);
 }
@@ -28,6 +33,7 @@ module.exports = {
   all,
   get,
   run,
+  runQuery,
   exec,
   db_close
 };

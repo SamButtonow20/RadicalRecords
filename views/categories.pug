@@ -4,19 +4,32 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Radical Records
-    link(rel="stylesheet", href="/styles/styles.css")
+    link(rel="stylesheet" href="/styles/styles.css")
+
   body
+
     // Navigation Bar
     header
       include partials/navbar
 
-    // Product Listing Section
+    // Category Listing Section
     section.category-list
       h2 Available Categories
-      .grid-container
-        each category in categories
-          .category-item
-            h3 #{category.name}
+
+      each category in categories
+        .category-section
+          h3 #{category.name}
+
+          .grid-containerforcategories
+            if category.products.length > 0
+              each product in category.products
+                .product-item
+                  img(src=`/images/${product.name.toLowerCase().replace(/\s+/g, '')}.jpg`, alt=product.name)
+                  h3 #{product.name} - #{product.artist}
+                  p $#{product.price.toFixed(2)}
+                  a(href=`/details/${product.id}`) View Details
+            else
+              p No products available in this category.
 
     // Footer
     footer

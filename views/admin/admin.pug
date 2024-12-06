@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Admin Product Listing - Radical Records
+    link(rel="stylesheet" href="/styles/admin.css")
+
+  body
+    header
+      nav
+        h1 Admin - Radical Records
+        ul
+          li: a(href="/admin/products") Home Admin Page
+          li: a(href="/admin/product/create") Add a Product
+          li: a(href="/admin/product/bulk-upload") Bulk Upload
+
+    main
+      h2 Manage Products
+      section
+        h3 Product List
+        table
+          thead
+            tr
+              th Product ID
+              th Name
+              th Category
+              th Price
+              th Actions
+          tbody
+            each product in products
+              tr
+                td= product.id
+                td= product.name
+                td= product.category_id
+                td= `$${product.price.toFixed(2)}`
+                td
+                  a(href=`/admin/product/showedit/${product.id}`) Edit
+                  |  | 
+                  form(action="/admin/product/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');")
+                   input(type="hidden" name="id" value=product.id)
+                   button(type="submit") Delete
+
+
+
+
+      a(href="/admin/product/create" class="btn") Add New Product
+
+    footer
+      p &copy; 2024 Radical Records Admin Panel. All Rights Reserved.

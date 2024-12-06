@@ -18,36 +18,34 @@ function getProductById(productId) {
     return db.get(sql, productId);
 }
 
-function addProduct(name, artist, price, description, image, genre) {
+function addProduct(name, artist, price, description, image_url) {
     const params = [
         name,
         artist,
         price,
         description,
-        image,
-        genre
+        image_url,
     ];
     const sql = `
-    INSERT INTO products(name, artist, price, description, image, genre)
-    VALUES (?, ?, ?, ?, ?, ?);
+    INSERT INTO products(name, artist, price, description, image_url)
+    VALUES (?, ?, ?, ?, ?);
     `;
 
     return db.run(sql, params);
 }
 
-function updateProduct(id, name, artist, price, description, image, genre) {
+function updateProduct(id, name, artist, price, description, image_url) {
     const params = [id,
         name,
         artist,
         price,
         description,
-        image,
-        genre
+        image_url,
     ];
 
     const sql = `
     UPDATE products
-    SET name = ?, artist = ?, price = ?, description = ?, image = ?, genre = ?
+    SET name = ?, artist = ?, price = ?, description = ?, image_url = ?
     WHERE id = ?;
     `;
 
@@ -170,7 +168,7 @@ function removeProductFromCart(cartItemId) {
 }
 
 // Genres Model
-function getAllGenres(){
+function getAllGenres() {
     const sql = `
     SELECT *
     FROM categories;
@@ -179,7 +177,7 @@ function getAllGenres(){
     return db.all(sql);
 }
 
-function checkoutCart(cartId){
+function checkoutCart(cartId) {
     const sql = `
     UPDATE carts
     SET status = 'purchased'

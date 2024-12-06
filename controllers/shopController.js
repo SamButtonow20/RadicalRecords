@@ -31,19 +31,28 @@ function getProducts(req, res) {
     });
 }
 
-function getGenres(req, res) {
+async function getGenres(req, res) {
+
     let user = null;
     if (req.user) {
         user = userModel.getUserByGoogleId(req.user.id);
     }
 
-    const categories = Model.getAllGenres();
+    const categories = await Model.getAllGenres();
+
+    const products = await Model.getAllProducts();
+
+    categories.forEach(category => {
+        category.products = products.filter(product => product.category_id === category.id);
+    });
 
     res.render('categories', {
         categories,
         user
-    })
+    });
 }
+
+
 
 function getCart(req, res) {
     const user = req.user;
@@ -72,8 +81,8 @@ function getProductDetails(req, res) {
 function addToCart(req, res) {
     const userId = req.user.id;
     let cart = Model.getUserCart(userId);
-        
-        // Added a check to ensure there is a cart for the user
+
+    // Added a check to ensure there is a cart for the user
     if (!cart || cart.length === 0) {
         Model.createCart(userId);
         cart = Model.getUserCart(userId);

@@ -28,24 +28,29 @@ function showCart() {
 }
 
 function setUpUpdate() {
-    const items = document.querySelectorAll('tr');
+    const items = document.querySelectorAll('.update-btn'); 
 
     items.forEach(item => {
-        console.log('Processing item:', item); // Log each item
-        const updateBtn = item.querySelector('.update-btn');
-        if (!updateBtn) {
-            console.error('No update button found for item:', item);
-        } else {
-            updateBtn.addEventListener('click', () => updateItemQuantity(item));
-        }
+        console.log('Processing item:', item); 
+        item.addEventListener('click', (event) => {
+            const itemRow = event.target.closest('tr'); 
+            updateItemQuantity(itemRow); 
+        });
     });
-
 }
 
 function updateItemQuantity(item) {
-    const quantityInput = item.querySelector('.quantityInput');
-    const quantity = quantityInput.value;
-    const cartItemId = quantityInput.dataset.id;
+    const quantityInput = item.querySelector('.quantity-input');
+    const priceElement = item.querySelector('td:nth-child(3)');
+    const totalElement = item.querySelector('td:nth-child(4)');
+
+    const quantity = parseInt(quantityInput.value); 
+    const price = parseFloat(priceElement.textContent.replace('$', ''));
+    const cartItemId = quantityInput.dataset.id; 
+
+ 
+    const itemTotal = price * quantity;
+    totalElement.textContent = `$${itemTotal.toFixed(2)}`;
 
     const data = {
         quantity: quantity,
@@ -53,26 +58,27 @@ function updateItemQuantity(item) {
     };
 
     fetch('/cart/update', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Form data successfully sent:', data);
-            window.location.href = '/cart';
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Item updated:', data);
+        showCart(); 
+    })
+    .catch(error => {
+        console.error('Error updating item:', error);
+    });
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     showCart();
     setUpUpdate();

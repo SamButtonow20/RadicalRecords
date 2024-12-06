@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Edit Product
+    link(rel="stylesheet", href="/styles/admin.css")
+  body
+    header
+      h1 Edit Product Details
+    main
+     form(action="/admin/product/edit" method="POST")
+      input(type="hidden", name="id" , value = product.id)
+      
+      label(for="name") Product Name:
+      input(type="text" id="name" name="name" value=product.name required)
+    
+      label(for="artist") Artist:
+      input(type="text" id="artist" name="artist" value=product.artist required)
+      
+      label(for="price") Price:
+      input(type="number" id="price" name="price" step="0.01" value=product.price required)
+      
+      label(for="category_id") Category ID:
+      input(id="category_id" name="category_id" value = product.category_id required)
+      
+      label(for="description") Description:
+      textarea(id="description" name="description" required)= product.description
+      
+      label(for="image_url") Product Image:
+      input(type="text" id="image_url" name="image_url" accept="image/*" value = product.image_url required)
+      
+      button(type="submit") Update Product
+    footer
+      p &copy; 2024 Your Company Name

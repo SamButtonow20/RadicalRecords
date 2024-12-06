@@ -49,11 +49,6 @@ nav ul li a {
     border-radius: 5px;
 }
 
-.featured img {
-    width: 200px;
-    margin-top: 20px;
-}
-
 /* Search Section */
 .search {
     text-align: center;
@@ -78,51 +73,6 @@ nav ul li a {
 .product-list {
     padding: 20px;
     background-color: #fff;
-}
-
-.grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Ensures even spacing between items */
-    gap: 20px; /* Adds some space between the product items */
-}
-
-.product-item {
-    flex: 0 0 calc(33.333% - 20px); /* Each item takes up 1/3rd of the row, minus the gap */
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    text-align: center;
-    box-sizing: border-box; /* Include padding and border in width */
-}
-
-.product-item img {
-    width: auto;
-    height: 200px;
-}
-
-.product-item h3 {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-h1 a {
-text-decoration: none;
-color: white;
-margin-right: 10px;
 }
 
 /* Product Details Section */
@@ -167,45 +117,78 @@ margin-right: 10px;
     cursor: pointer;
     border-radius: 5px;
 }
-/* Shopping Cart Table */
-.shopping-cart table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Align items to the left */
+    gap: 10px;
+    /* Reduce spacing between product items */
 }
 
-.shopping-cart th, .shopping-cart td {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+.grid-containerforcategories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* Align items to the left */
+    gap: 10px;
+    /* Reduce spacing between product items */
 }
 
-.cart-item-img {
-    width: 50px;
-    height: auto;
-    margin-right: 10px;
-    vertical-align: middle;
+.product-item {
+    padding: 10px;
+    /* Reduce padding to bring content closer */
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: transform 0.2s;
+    width: 400px;
 }
 
-.cart-summary {
-    margin-top: 20px;
+.product-item:hover {
+    transform: scale(1.05);
 }
 
-.cart-summary p {
+.product-item img {
+    width: auto;
+    height: 180px;
+    object-fit: cover;
+    /* Ensure a clean image crop */
+}
+
+.product-item h3 {
     font-size: 1.2em;
     margin: 5px 0;
 }
 
-.update-btn, .remove-btn, .checkout {
-    padding: 10px 20px;
-    background-color: #ff6600;
+/* Footer */
+footer {
+    background-color: #333;
     color: white;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
-.update-btn:hover, .remove-btn:hover, .checkout:hover {
-    background-color: #cc5200;
+h1 a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+/* Category Sections */
+.category-section {
+    margin-bottom: 10px;
+    /* Reduced vertical spacing between categories */
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Reduce overall padding for product sections */
+.product-list {
+    padding: 15px;
 }

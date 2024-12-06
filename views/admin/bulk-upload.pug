@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Bulk Upload - Radical Records
+    link(rel="stylesheet" href="/styles/admin.css")
+  body
+    header
+      nav
+        h1 Admin - Radical Records
+        ul
+          li: a(href="/admin/products") Home Admin Page
+          li: a(href="/admin/product/create") Add a Product
+          li: a(href="/admin/product/bulk-upload") Bulk Upload
+
+    main
+      h2 Bulk Upload Products
+
+      // Instructions Section
+      section
+        h3 Instructions:
+        p Please upload a file in JSON, CSV, or text format. Here is an example of a valid JSON structure:
+
+        pre
+          code
+            | {
+            |     {
+            |       "name": "Album Name"
+            |       "artist": "Example Artist",
+            |       "price": 39.00,
+            |       "description": "Description Example"
+            |       "category_id": "1 for Rock",
+            |       "is_featured": "1",
+            |       "image_url": "example.jpg"
+            |     }
+            |   
+            | }
+          
+      // Form for uploading the JSON file
+      section
+        form(action="/admin/product/bulk-upload" method="POST" enctype="multipart/form-data")
+          div
+            label(for="jsonFile") Upload JSON File:
+            input(type="file" id="jsonFile" name="jsonFile" accept="application/json" required)
+          div
+            button(type="submit") Upload Products
+
+    footer
+      p &copy; 2024 Radical Records Admin Panel. All Rights Reserved.

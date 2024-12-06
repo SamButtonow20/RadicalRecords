@@ -33,7 +33,7 @@ html(lang="en")
                 td $#{item.price}
                 td $#{item.price * item.quantity}
                 td
-                  button.update-btn(data-id=item.cartItemId) Update
+                  button(class="update-btn" data-id=item.cartItemId) Update
                   // REMOVE FORM
                   form(action="/cart/remove" method="POST")
                     input(type="hidden" name="cartItemId" value=item.cartItemId)

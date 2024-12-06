@@ -1,9 +1,8 @@
 header
   nav
     section.search
-      form(action="#", method="GET")
-        input(type="text", placeholder="Search records by artist, album, genre...")
-        button(type="submit") Go
+      script(async src="https://cse.google.com/cse.js?cx=f4f16b1fdddc4415a")
+      div.gcse-search
     h1
       a(href="/") Radical Records
     ul
@@ -16,3 +15,5 @@ header
         li: a(href="/auth/logout") Log Out
       else
         li: a(href="/auth/login") Sign In
+section.results
+  p No search results yet. Perform a search to see results here.
